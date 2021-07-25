@@ -1,11 +1,11 @@
-FROM php:8.1.0beta1-fpm-alpine3.14
+FROM php:8.0.8-fpm-alpine
 
 # Install tools required for build stage
 RUN apk add --update --no-cache \
     bash curl wget rsync ca-certificates openssl openssh git tzdata openntpd \
     libxrender fontconfig libc6-compat \
     mysql-client gnupg binutils-gold autoconf \
-    g++ gcc gnupg libgcc linux-headers make python
+    g++ gcc gnupg libgcc linux-headers make python3
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
